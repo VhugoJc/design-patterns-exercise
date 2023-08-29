@@ -1,15 +1,17 @@
 package oop.inheritance;
 
-import oop.inheritance.data.SupportedTerminal;
+import oop.inheritance.terminal.ITerminal;
+import oop.inheritance.terminal.Ingenico.TerminalIngenico;
 
 public class Main {
 
     public static void main(String[] args) {
-        Application application = new Application(SupportedTerminal.INGENICO);
+        ITerminal terminal = new TerminalIngenico();
 
-        while (true) {
-            run(application);
-        }
+        Application2 app = new Application2(terminal);
+//        while (true) {
+//            run(application);
+//        }
     }
 
     public static void run(Application application) {

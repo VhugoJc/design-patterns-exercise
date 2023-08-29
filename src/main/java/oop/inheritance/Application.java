@@ -9,6 +9,7 @@ import oop.library.ingenico.model.Transaction;
 import oop.library.ingenico.model.TransactionResponse;
 import oop.library.ingenico.services.*;
 import oop.library.v240m.VerifoneV240mDisplay;
+import oop.library.v240m.VerifoneV240mEthernet;
 
 public class Application {
 
@@ -42,7 +43,6 @@ public class Application {
 
     public String readKey() {
         IngenicoKeyboard ingenicoKeyboard = new IngenicoKeyboard();
-
         return ingenicoKeyboard.getChar();
     }
 
@@ -52,7 +52,6 @@ public class Application {
         IngenicoDisplay ingenicoDisplay = new IngenicoDisplay();
         IngenicoKeyboard ingenicoKeyboard = new IngenicoKeyboard();
         Card card;
-
         do {
             card = cardSwipper.readCard();
             if (card == null) {
@@ -100,6 +99,7 @@ public class Application {
         IngenicoModem modem = new IngenicoModem();
         IngenicoGPS gps = new IngenicoGPS();
         TransactionResponse transactionResponse = null;
+
 
         switch (communicationType) {
             case ETHERNET:
