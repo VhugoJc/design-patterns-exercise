@@ -9,6 +9,7 @@ public class Main {
         ITerminal terminal = new TerminalIngenico();
 
         Application2 app = new Application2(terminal);
+        app.doSale();
 //        while (true) {
 //            run(application);
 //        }

@@ -1,4 +1,5 @@
 package oop.inheritance;
+import oop.inheritance.terminal.CardProvider;
 import oop.inheritance.terminal.services.IDisplay;
 import oop.inheritance.terminal.services.IKeyboard;
 import oop.inheritance.terminal.ITerminal;
@@ -26,8 +27,11 @@ public class Application2 {
         IDisplay display = supportedTerminal.createDisplay();
         IKeyboard keyboard = supportedTerminal.createKeyboard();
         //read card
+        CardProvider cardProvider = supportedTerminal.createCardProvider();
+        cardProvider.readCard(x -> {
         // transaction
         // print receipt
+        });
     }
 
     public void clearScreen(){

@@ -6,4 +6,5 @@ import oop.inheritance.terminal.services.IKeyboard;
 public interface ITerminal {
     IDisplay createDisplay();
     IKeyboard createKeyboard();
+    CardProvider createCardProvider();
 }
