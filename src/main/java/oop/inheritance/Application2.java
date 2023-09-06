@@ -6,6 +6,7 @@ import oop.inheritance.terminal.services.IDisplay;
 import oop.inheritance.terminal.services.IKeyboard;
 import oop.inheritance.terminal.ITerminal;
 import oop.inheritance.terminal.services.IPrinter;
+import oop.library.ingenico.model.Card;
 import oop.library.ingenico.services.IngenicoPrinter;
 
 import java.time.LocalDateTime;
@@ -49,6 +50,7 @@ public class Application2 {
             communicationTerminal.send(transaction);
             communicationTerminal.receive();
             communicationTerminal.close();
+            printReceipt(transaction);
         });
     }
 
@@ -58,6 +60,7 @@ public class Application2 {
     }
 
     private void printReceipt(Transaction transaction) {
+        Object card = transaction.getCard();
         IPrinter printer = supportedTerminal.createPrinter();
         printer.print(5, "APROBADA");
         printer.lineFeed();
@@ -65,6 +68,6 @@ public class Application2 {
         printer.lineFeed();
         printer.print(5, "" + transaction.getAmountInCents());
         printer.lineFeed();
-        
+        printer.print(5, "________________");
     }
 }
