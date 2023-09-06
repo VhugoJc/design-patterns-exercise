@@ -2,14 +2,15 @@ package oop.inheritance;
 
 import oop.inheritance.terminal.ITerminal;
 import oop.inheritance.terminal.Ingenico.TerminalIngenico;
+import oop.inheritance.terminal.services.ICommunication;
 
 public class Main {
 
     public static void main(String[] args) {
-        ITerminal terminal = new TerminalIngenico();
+        ITerminal terminal = new TerminalIngenico(); // supported terminal
+        ICommunication communicationTerminal = terminal.createEthernet(); // communication terminal
 
-        Application2 app = new Application2(terminal);
-        app.doSale();
+        Application2 app = new Application2(terminal, communicationTerminal);
 //        while (true) {
 //            run(application);
 //        }

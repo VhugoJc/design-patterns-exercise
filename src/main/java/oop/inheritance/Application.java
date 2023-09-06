@@ -10,6 +10,9 @@ import oop.library.ingenico.model.TransactionResponse;
 import oop.library.ingenico.services.*;
 import oop.library.v240m.VerifoneV240mDisplay;
 import oop.library.v240m.VerifoneV240mEthernet;
+import oop.library.v240m.VerifoneV240mGPS;
+import oop.library.vx520.VerifoneVx520CardSwipper;
+import oop.library.vx520.VerifoneVx520StorageSystem;
 
 public class Application {
 
@@ -31,6 +34,7 @@ public class Application {
             ingenicoDisplay.showMessage(5, 23, "4. CONFIGURACION");
         } else {
             VerifoneV240mDisplay verifoneV240mDisplay = new VerifoneV240mDisplay();
+            VerifoneVx520StorageSystem ss;
 
             verifoneV240mDisplay.print(5, 5, "MENU");
             verifoneV240mDisplay.print(5, 10, "1. VENTA");
@@ -52,6 +56,7 @@ public class Application {
         IngenicoDisplay ingenicoDisplay = new IngenicoDisplay();
         IngenicoKeyboard ingenicoKeyboard = new IngenicoKeyboard();
         Card card;
+
         do {
             card = cardSwipper.readCard();
             if (card == null) {
@@ -99,7 +104,6 @@ public class Application {
         IngenicoModem modem = new IngenicoModem();
         IngenicoGPS gps = new IngenicoGPS();
         TransactionResponse transactionResponse = null;
-
 
         switch (communicationType) {
             case ETHERNET:
